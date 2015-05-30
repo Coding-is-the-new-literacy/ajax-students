@@ -1,0 +1,14 @@
+<p>welcome <%= current_student.email %></p>
+<% @posts.each do |post| %>
+<p>Title: <%= post.title %></p>
+<p>Content: <%= post.content %></p>
+
+<a href="posts/<%= post.id %>/edit">Edit post</a>
+
+<form action='/posts/<%= post.id %>' method="post">
+  <input type="hidden" name="_method" value="delete"/>
+  <input type="submit" value="Delete Post!"/>
+</form>
+
+<% end %>
+<p><a href="posts/new">new post</a></p>
